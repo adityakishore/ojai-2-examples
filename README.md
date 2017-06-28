@@ -21,3 +21,12 @@ Build the project using:
 Run following command to execute OJAI_002_GetStoreAndInsertDocuments class:
 
     java -cp $(mapr classpath):target/ojai-2-samples-1.0-SNAPSHOT.jar com.mapr.ojai.examples.OJAI_002_GetStoreAndInsertDocuments
+
+
+In order to run classes from OJAI_004_FindAll.java onwards, you'll need drill libraries. So you’ll need to replace the $(mapr classpath) with the output from the following command:
+
+    echo classpath | mapr dbshell
+
+Run the command and store standard output in a file called classpath, remove the unwanted characters from the file and then replace $(mapr classpath) with $(cat classpath)
+
+    java -cp $(mapr classpath):target/ojai-2-samples-1.0-SNAPSHOT.jar com.mapr.ojai.examples.OJAI_004_FindAll
